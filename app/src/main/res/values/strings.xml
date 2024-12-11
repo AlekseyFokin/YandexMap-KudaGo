@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SimplePhotoGalery</string>
+     <string name="title_galery">Галерея</string>
+    <string name="title_shot">Фото</string>
+    <string name="shot_btn">Фото</string>
+    <string name="map">Карта</string>
+    <string name="title_map">Карта</string>
+</resources>

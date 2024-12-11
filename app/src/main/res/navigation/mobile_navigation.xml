@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_galery">
+
+    <fragment
+        android:id="@+id/navigation_galery"
+        android:name="org.sniffsnirr.simplephotogalery.ui.galery.GalleryFragment"
+        android:label="@string/title_galery"
+        tools:layout="@layout/fragment_galery" />
+
+    <fragment
+        android:id="@+id/navigation_shot"
+        android:name="org.sniffsnirr.simplephotogalery.ui.shot.ShotFragment"
+        android:label="@string/title_shot"
+        tools:layout="@layout/fragment_shot" />
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="org.sniffsnirr.simplephotogalery.ui.map.MapsFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/fragment_maps" />
+</navigation>
