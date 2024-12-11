@@ -8,6 +8,6 @@
 При нажатии на маркер открывается alertDialog в качестве информационного окна с одной кнопкой, заполненное информацией по объекту.
 На экране отображаются кнопки масштабирования и текущего местоположения.
 
-<img src="https://github.com/AlekseyFokin/YandexMap-KudaGo/blob/main/map.gif" alt="gif" width="360" height="800">
+<img src="https://github.com/AlekseyFokin/YandexMap-KudaGo/blob/main/map2.gif" alt="gif" width="360" height="800">
 
 
