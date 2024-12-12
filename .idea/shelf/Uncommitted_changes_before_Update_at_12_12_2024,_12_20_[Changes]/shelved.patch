@@ -1,0 +1,153 @@
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\n    alias(libs.plugins.androidApplication)\n    alias(libs.plugins.jetbrainsKotlinAndroid)\n    alias(libs.plugins.compilerKsp)\n    id(\"com.google.dagger.hilt.android\") version \"2.46.1\"\n    alias(libs.plugins.org.jetbrains.kotlin.kapt)\n\n}\n\nandroid {\n    namespace = \"org.sniffsnirr.simplephotogalery\"\n    compileSdk = 35\n\n    defaultConfig {\n        applicationId = \"org.sniffsnirr.simplephotogalery\"\n        minSdk = 24\n        targetSdk = 34\n        versionCode = 1\n        versionName = \"1.0\"\n\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\n    }\n\n    buildTypes {\n        release {\n            isMinifyEnabled = false\n            proguardFiles(\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\n                \"proguard-rules.pro\"\n            )\n        }\n    }\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_1_8\n        targetCompatibility = JavaVersion.VERSION_1_8\n    }\n    kotlinOptions {\n        jvmTarget = \"1.8\"\n\n    }\n    buildFeatures {\n        viewBinding = true\n    }\n}\n\ndependencies {\n\n    implementation(libs.androidx.core.ktx)\n    implementation(libs.androidx.appcompat)\n    implementation(libs.material)\n    implementation(libs.androidx.constraintlayout)\n    implementation(libs.androidx.lifecycle.livedata.ktx)\n    implementation(libs.androidx.lifecycle.viewmodel.ktx)\n    implementation(libs.androidx.navigation.fragment.ktx)\n    implementation(libs.androidx.navigation.ui.ktx)\n\n    testImplementation(libs.junit)\n    androidTestImplementation(libs.androidx.junit)\n    androidTestImplementation(libs.androidx.espresso.core)\n\n    implementation(libs.androidx.room)\n    ksp(libs.androidx.room.ksp)\n\n    implementation (libs.hiltAndroid)\n    kapt (libs.hiltCompiler)\n\n    implementation(libs.androidx.camera.core)\n    implementation(libs.androidx.camera.camera2)\n    implementation(libs.androidx.camera.lifecycle)\n    implementation(libs.androidx.camera.view)\n    implementation(libs.androidx.camera.extensions)\n\n    implementation(libs.glide)\n\n    implementation(libs.androidx.recyclerview)\n    implementation(libs.android.gms)\n    implementation(libs.yandex.maps)\n\n    implementation(libs.okhttp3)\n    implementation(libs.logging.interceptor)\n    implementation(libs.converter.retrofit)\n    implementation(libs.retrofit)\n    implementation(libs.gson)\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	(revision afcd527053bb74915b20fa0207c7de45aff219fa)
++++ b/app/build.gradle.kts	(date 1733992725107)
+@@ -4,7 +4,8 @@
+     alias(libs.plugins.compilerKsp)
+     id("com.google.dagger.hilt.android") version "2.46.1"
+     alias(libs.plugins.org.jetbrains.kotlin.kapt)
+-
++  //  id ("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1"
++    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+ }
+ 
+ android {
+@@ -40,6 +41,7 @@
+     }
+     buildFeatures {
+         viewBinding = true
++        buildConfig = true
+     }
+ }
+ 
+@@ -81,4 +83,5 @@
+     implementation(libs.converter.retrofit)
+     implementation(libs.retrofit)
+     implementation(libs.gson)
++
+ }
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>*.iml\n.gradle\n/local.properties\n/.idea/caches\n/.idea/libraries\n/.idea/modules.xml\n/.idea/workspace.xml\n/.idea/navEditor.xml\n/.idea/assetWizardSettings.xml\n.DS_Store\n/build\n/captures\n.externalNativeBuild\n.cxx\nlocal.properties\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision afcd527053bb74915b20fa0207c7de45aff219fa)
++++ b/.gitignore	(date 1733986612828)
+@@ -13,3 +13,4 @@
+ .externalNativeBuild
+ .cxx
+ local.properties
++secrets.properties
+Index: app/src/main/java/org/sniffsnirr/simplephotogalery/App.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.sniffsnirr.simplephotogalery\n\nimport android.app.Application\nimport com.yandex.mapkit.MapKitFactory\nimport dagger.hilt.android.HiltAndroidApp\n\n@HiltAndroidApp\nclass App : Application(){\n    override fun onCreate() {\n        super.onCreate()\n        //MapKitFactory.setApiKey(\"cb6deb10-8e91-46c1-ad1c-f5e89fd819e0\")\n        MapKitFactory.setApiKey(\"6648ffb7-eeea-46b5-aba4-5542f503de1f\")\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/sniffsnirr/simplephotogalery/App.kt b/app/src/main/java/org/sniffsnirr/simplephotogalery/App.kt
+--- a/app/src/main/java/org/sniffsnirr/simplephotogalery/App.kt	(revision afcd527053bb74915b20fa0207c7de45aff219fa)
++++ b/app/src/main/java/org/sniffsnirr/simplephotogalery/App.kt	(date 1733992972836)
+@@ -2,13 +2,15 @@
+ 
+ import android.app.Application
+ import com.yandex.mapkit.MapKitFactory
++
+ import dagger.hilt.android.HiltAndroidApp
+ 
+ @HiltAndroidApp
+ class App : Application(){
+     override fun onCreate() {
+         super.onCreate()
+-        //MapKitFactory.setApiKey("cb6deb10-8e91-46c1-ad1c-f5e89fd819e0")
+-        MapKitFactory.setApiKey("6648ffb7-eeea-46b5-aba4-5542f503de1f")
++
++        MapKitFactory.setApiKey(BuildConfig.MAPS_API_KEY)
++
+     }
+ }
+\ No newline at end of file
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Project-wide Gradle settings.\n# IDE (e.g. Android Studio) users:\n# Gradle settings configured through the IDE *will override*\n# any settings specified in this file.\n# For more details on how to configure your build environment visit\n# http://www.gradle.org/docs/current/userguide/build_environment.html\n# Specifies the JVM arguments used for the daemon process.\n# The setting is particularly useful for tweaking memory settings.\norg.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8\n# When configured, Gradle will run in incubating parallel mode.\n# This option should only be used with decoupled projects. For more details, visit\n# https://developer.android.com/r/tools/gradle-multi-project-decoupled-projects\n# org.gradle.parallel=true\n# AndroidX package structure to make it clearer which packages are bundled with the\n# Android operating system, and which are packaged with your app's APK\n# https://developer.android.com/topic/libraries/support-library/androidx-rn\nandroid.useAndroidX=true\n# Kotlin code style for this project: \"official\" or \"obsolete\":\nkotlin.code.style=official\n# Enables namespacing of each library's R class so that its R class includes only the\n# resources declared in the library itself and none from the library's dependencies,\n# thereby reducing the size of the R class for that library\nandroid.nonTransitiveRClass=true\nandroid.suppressUnsupportedCompileSdk=35
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle.properties b/gradle.properties
+--- a/gradle.properties	(revision afcd527053bb74915b20fa0207c7de45aff219fa)
++++ b/gradle.properties	(date 1733992449869)
+@@ -21,4 +21,6 @@
+ # resources declared in the library itself and none from the library's dependencies,
+ # thereby reducing the size of the R class for that library
+ android.nonTransitiveRClass=true
+-android.suppressUnsupportedCompileSdk=35
+\ No newline at end of file
++android.suppressUnsupportedCompileSdk=35
++
++
+Index: build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\nplugins {\n    alias(libs.plugins.androidApplication) apply false\n    alias(libs.plugins.jetbrainsKotlinAndroid) apply false\n    alias(libs.plugins.compilerKsp) apply false\n    alias(libs.plugins.org.jetbrains.kotlin.kapt) apply false\n    id(\"com.google.dagger.hilt.android\") version \"2.46.1\" apply false\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle.kts b/build.gradle.kts
+--- a/build.gradle.kts	(revision afcd527053bb74915b20fa0207c7de45aff219fa)
++++ b/build.gradle.kts	(date 1733989754626)
+@@ -5,5 +5,10 @@
+     alias(libs.plugins.compilerKsp) apply false
+     alias(libs.plugins.org.jetbrains.kotlin.kapt) apply false
+     id("com.google.dagger.hilt.android") version "2.46.1" apply false
+-
++//    id ("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1" apply false
++}
++buildscript {
++    dependencies {
++        classpath("com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.1")
++    }
+ }
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"jbr-21\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\n  </component>\n  <component name=\"ProjectType\">\n    <option name=\"id\" value=\"Android\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision afcd527053bb74915b20fa0207c7de45aff219fa)
++++ b/.idea/misc.xml	(date 1733993533951)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="jbr-21" project-jdk-type="JavaSDK">
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"GradleSettings\">\n    <option name=\"linkedExternalProjectsSettings\">\n      <GradleProjectSettings>\n        <option name=\"testRunner\" value=\"CHOOSE_PER_TEST\" />\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\n        <option name=\"gradleJvm\" value=\"#GRADLE_LOCAL_JAVA_HOME\" />\n        <option name=\"modules\">\n          <set>\n            <option value=\"$PROJECT_DIR$\" />\n            <option value=\"$PROJECT_DIR$/app\" />\n          </set>\n        </option>\n        <option name=\"resolveExternalAnnotations\" value=\"false\" />\n      </GradleProjectSettings>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision afcd527053bb74915b20fa0207c7de45aff219fa)
++++ b/.idea/gradle.xml	(date 1733982133795)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>

@@ -4,7 +4,8 @@ plugins {
     alias(libs.plugins.compilerKsp)
     id("com.google.dagger.hilt.android") version "2.46.1"
     alias(libs.plugins.org.jetbrains.kotlin.kapt)
-
+  //  id ("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1"
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -40,6 +41,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -81,4 +83,5 @@ dependencies {
     implementation(libs.converter.retrofit)
     implementation(libs.retrofit)
     implementation(libs.gson)
+
 }
