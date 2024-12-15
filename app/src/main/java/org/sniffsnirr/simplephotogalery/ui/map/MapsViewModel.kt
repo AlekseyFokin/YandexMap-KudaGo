@@ -8,12 +8,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.sniffsnirr.simplephotogalery.entities.PlaceMark
-import org.sniffsnirr.simplephotogalery.usecases.GetEducationEvents
+import org.sniffsnirr.simplephotogalery.usecases.GetEducationEventsUsecase
 import javax.inject.Inject
 import kotlin.math.abs
 
 @HiltViewModel
-class MapsViewModel @Inject constructor(val getEducationEvents: GetEducationEvents) : ViewModel() {
+class MapsViewModel @Inject constructor(val getEducationEventsUsecase: GetEducationEventsUsecase) : ViewModel() {
 
    var firstOpen = true
 
@@ -43,7 +43,7 @@ class MapsViewModel @Inject constructor(val getEducationEvents: GetEducationEven
 
     private fun loadPlaceMarks() {// загрузка меток
         viewModelScope.launch {
-            val placeMarks = getEducationEvents.getEducationEvents()
+            val placeMarks = getEducationEventsUsecase.getEducationEvents()
             if (!placeMarks.isNullOrEmpty()) {
                 _placeMarks.value = placeMarks
             }

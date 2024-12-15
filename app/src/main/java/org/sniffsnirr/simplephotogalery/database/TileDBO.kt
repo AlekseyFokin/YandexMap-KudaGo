@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import org.sniffsnirr.simplephotogalery.entities.Tile
 
 @Entity(tableName = "tiles")
-class TileDBO(
+data class TileDBO(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     override val id: Int?,

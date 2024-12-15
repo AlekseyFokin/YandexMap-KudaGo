@@ -1,10 +1,10 @@
 package org.sniffsnirr.simplephotogalery.usecases
 
 import dagger.hilt.android.scopes.ActivityRetainedScoped
-import org.sniffsnirr.simplephotogalery.database.AppDatabaseRepository
+import org.sniffsnirr.simplephotogalery.database.AppDatabaseRepositoryImpl
 import javax.inject.Inject
 @ActivityRetainedScoped
-class GetAllPhotosUseCase @Inject constructor(val repository: AppDatabaseRepository) {
+class GetAllPhotosUsecase @Inject constructor(val repository: AppDatabaseRepositoryImpl) {
 
   fun getAllTales()=repository.giveMeTiles()
 

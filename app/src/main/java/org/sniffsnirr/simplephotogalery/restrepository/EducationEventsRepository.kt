@@ -21,6 +21,7 @@ class EducationEventsRepository @Inject constructor(val retrofitInstance: Educat
                 null
             }
         } catch (e: Exception) {
+            Log.d("RetrofitResponse", e.stackTraceToString())
             null
         }
     }

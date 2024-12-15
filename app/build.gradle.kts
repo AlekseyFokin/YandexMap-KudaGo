@@ -43,7 +43,10 @@ android {
         viewBinding = true
         buildConfig = true
     }
+
 }
+
+
 
 dependencies {
 
@@ -57,6 +60,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
 
     testImplementation(libs.junit)
+    testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
@@ -83,5 +87,9 @@ dependencies {
     implementation(libs.converter.retrofit)
     implementation(libs.retrofit)
     implementation(libs.gson)
+
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
+    testImplementation("org.mockito:mockito-core:4.0.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
 
 }

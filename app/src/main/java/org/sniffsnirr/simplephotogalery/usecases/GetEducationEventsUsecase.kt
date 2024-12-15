@@ -8,7 +8,7 @@ import org.sniffsnirr.simplephotogalery.restrepository.EducationEventsRepository
 import javax.inject.Inject
 
 @ActivityRetainedScoped
-class GetEducationEvents @Inject constructor(val educationEventsRepository: EducationEventsRepository) {
+class GetEducationEventsUsecase @Inject constructor(val educationEventsRepository: EducationEventsRepository) {
 
     suspend fun getEducationEvents(): List<PlaceMark>? {// фильтрую события, чтобы можно было показать на карте
         val educationEvents = educationEventsRepository.getEducationEvents()

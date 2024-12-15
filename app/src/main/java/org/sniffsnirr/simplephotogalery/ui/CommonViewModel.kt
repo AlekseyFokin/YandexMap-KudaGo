@@ -6,14 +6,14 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import org.sniffsnirr.simplephotogalery.entities.Tile
-import org.sniffsnirr.simplephotogalery.usecases.GetAllPhotosUseCase
-import org.sniffsnirr.simplephotogalery.usecases.SaveNewPhotoToGalleryUseCase
+import org.sniffsnirr.simplephotogalery.usecases.GetAllPhotosUsecase
+import org.sniffsnirr.simplephotogalery.usecases.SaveNewPhotoToGalleryUsecase
 import javax.inject.Inject
 
 @HiltViewModel
 class CommonViewModel @Inject constructor(
-    val saveNewPhotoToGalleryUseCase: SaveNewPhotoToGalleryUseCase,
-    val getAllPhotosUseCase: GetAllPhotosUseCase
+    val saveNewPhotoToGalleryUseсase: SaveNewPhotoToGalleryUsecase,
+    val getAllPhotosUseCase: GetAllPhotosUsecase
 
 ) : ViewModel() {
 
@@ -26,7 +26,7 @@ class CommonViewModel @Inject constructor(
 
 fun addTile(photoPath: String, createFileTime: Long) {
         viewModelScope.launch {
-        saveNewPhotoToGalleryUseCase.saveNewPhoto(photoPath, createFileTime)
+        saveNewPhotoToGalleryUseсase(photoPath, createFileTime)
         }
     }
 
