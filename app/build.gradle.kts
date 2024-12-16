@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree.Companion.test
-
 
 plugins {
     alias(libs.plugins.androidApplication)
@@ -49,9 +47,9 @@ android {
 
 }
 
-test
-{
+tasks.withType<Test> {
 
+    useJUnitPlatform()
 }
 
 dependencies {
@@ -65,10 +63,10 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
-    testImplementation(libs.junit)
-    testImplementation(libs.junit.jupiter)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+//    testImplementation(libs.junit)
+//    testImplementation(libs.junit.jupiter)
+//    androidTestImplementation(libs.androidx.junit)
+//    androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.androidx.room)
     ksp(libs.androidx.room.ksp)
@@ -94,8 +92,9 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.gson)
 
-    testImplementation(libs.junit.jupiter.v582)
-    testImplementation(libs.mockito.core)
-    testImplementation(libs.mockito.kotlin)
+    testImplementation(kotlin("test"))
+    testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
+    testImplementation("org.mockito:mockito-core:5.12.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.3.1")
 
 }
