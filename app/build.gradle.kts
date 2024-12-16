@@ -69,6 +69,8 @@ dependencies {
 //    androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(libs.androidx.room)
+    testImplementation(libs.junit.jupiter)
+    testImplementation(libs.junit.jupiter)
     ksp(libs.androidx.room.ksp)
 
     implementation (libs.hiltAndroid)

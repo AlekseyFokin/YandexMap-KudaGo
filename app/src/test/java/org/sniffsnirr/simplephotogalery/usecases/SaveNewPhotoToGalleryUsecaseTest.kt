@@ -2,7 +2,6 @@ package org.sniffsnirr.simplephotogalery.usecases
 
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.mock
 

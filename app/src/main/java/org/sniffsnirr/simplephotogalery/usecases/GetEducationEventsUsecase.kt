@@ -4,14 +4,14 @@ import com.yandex.mapkit.geometry.Point
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import org.sniffsnirr.simplephotogalery.entities.Event
 import org.sniffsnirr.simplephotogalery.entities.PlaceMark
-import org.sniffsnirr.simplephotogalery.restrepository.EducationEventsRepository
+import org.sniffsnirr.simplephotogalery.restrepository.EducationEventsRepositoryImpl
 import javax.inject.Inject
 
 @ActivityRetainedScoped
-class GetEducationEventsUsecase @Inject constructor(val educationEventsRepository: EducationEventsRepository) {
+class GetEducationEventsUsecase @Inject constructor(val educationEventsRepositoryImpl: EducationEventsRepositoryImpl) {
 
     suspend fun getEducationEvents(): List<PlaceMark>? {// фильтрую события, чтобы можно было показать на карте
-        val educationEvents = educationEventsRepository.getEducationEvents()
+        val educationEvents = educationEventsRepositoryImpl.getEducationEvents()
         if (educationEvents == null) return emptyList()
         else {
             val uniqeEducationEventsHasPlaceAndCoords = educationEvents.results

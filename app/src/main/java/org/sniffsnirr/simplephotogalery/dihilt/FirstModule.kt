@@ -10,6 +10,8 @@ import dagger.hilt.components.SingletonComponent
 import org.sniffsnirr.simplephotogalery.database.AppDatabase
 import org.sniffsnirr.simplephotogalery.database.AppDatabaseRepository
 import org.sniffsnirr.simplephotogalery.database.AppDatabaseRepositoryImpl
+import org.sniffsnirr.simplephotogalery.restrepository.EducationEventsRepository
+import org.sniffsnirr.simplephotogalery.restrepository.EducationEventsRepositoryImpl
 import javax.inject.Singleton
 
 @Module
@@ -26,7 +28,12 @@ object FirstModule {
     fun provideDao(db: AppDatabase) = db.tileDao()
 
     @Provides
-    fun provideAppDatabaseRepository(impl:AppDatabaseRepositoryImpl): AppDatabaseRepository{
+    fun provideAppDatabaseRepository(impl: AppDatabaseRepositoryImpl): AppDatabaseRepository {
+        return impl
+    }
+
+    @Provides
+    fun provideEventsRepository(impl: EducationEventsRepositoryImpl): EducationEventsRepository {
         return impl
     }
 }
