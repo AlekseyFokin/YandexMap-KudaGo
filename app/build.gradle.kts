@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree.Companion.test
+
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -46,7 +49,10 @@ android {
 
 }
 
+test
+{
 
+}
 
 dependencies {
 
@@ -88,8 +94,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.gson)
 
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
-    testImplementation("org.mockito:mockito-core:4.0.0")
-    testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
+    testImplementation(libs.junit.jupiter.v582)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
 
 }

@@ -1,5 +1,6 @@
 [versions]
 agp = "8.7.3"
+junitJupiterVersion = "5.8.2"
 kotlin = "1.9.24"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -10,10 +11,11 @@ material = "1.12.0"
 constraintlayout = "2.2.0"
 lifecycleLivedataKtx = "2.8.7"
 lifecycleViewmodelKtx = "2.8.7"
+mockitoCore = "4.0.0"
 navigationFragmentKtx = "2.8.4"
 navigationUiKtx = "2.8.4"
 roomVers="2.6.1"
-kspVers="1.9.0-1.0.13"
+kspVers="1.9.24-1.0.20"
 daggerHiltVers="2.48"
 orgJetbrainsKotlinAndroidVers = "1.8.0"
 cameraxVers="1.4.0"
@@ -34,6 +36,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+junit-jupiter-v582 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junitJupiterVersion" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
@@ -58,6 +61,8 @@ glide={group="com.github.bumptech.glide", name="glide",version.ref="glideVers"}
 androidx-recyclerview={group="androidx.recyclerview", name="recyclerview", version.ref="recycledViewVers"}
 
 android-gms={group="com.google.android.gms", name="play-services-location", version.ref="gpsVers"}
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockitoCore" }
 yandex-maps={group="com.yandex.android",name="maps.mobile", version.ref="yandexMapsVers"}
 
 converter_retrofit={group="com.squareup.retrofit2", name="converter-gson", version.ref = "retrofitVers" }

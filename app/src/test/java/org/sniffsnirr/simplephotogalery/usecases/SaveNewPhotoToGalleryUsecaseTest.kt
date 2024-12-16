@@ -1,5 +1,7 @@
 package org.sniffsnirr.simplephotogalery.usecases
 
+import kotlinx.coroutines.runBlocking
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
@@ -12,7 +14,7 @@ class SaveNewPhotoToGalleryUsecaseTest {
 
     @Test
     fun `should create TileDBO` (){
-        val testTileDBO= TileDBO(
+        val expectTileDBO= TileDBO(
             id = null,
             photoPath = photoPath,
             dateTime = dateTime,
@@ -21,6 +23,9 @@ class SaveNewPhotoToGalleryUsecaseTest {
 
         val testSaveNewPhotoToGalleryUsecase=SaveNewPhotoToGalleryUsecase(AppDatabaseRepositoryMock)
 
+        val actual=runBlocking{testSaveNewPhotoToGalleryUsecase(photoPath,dateTime)}
+
+        Assertions.assertEquals(expectTileDBO,actual)
     }
 
     companion object
