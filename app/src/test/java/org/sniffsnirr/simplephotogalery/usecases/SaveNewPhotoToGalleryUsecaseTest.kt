@@ -4,7 +4,8 @@ import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.mockito.kotlin.mock
+import org.mockito.Mockito.mock
+
 
 import org.sniffsnirr.simplephotogalery.database.AppDatabaseRepository
 import org.sniffsnirr.simplephotogalery.database.TileDBO
@@ -13,7 +14,7 @@ class SaveNewPhotoToGalleryUsecaseTest {
     val AppDatabaseRepositoryMock=mock<AppDatabaseRepository>()
 
     @Test
-    fun `should create TileDBO` (){
+    fun `should create same TileDBO` (){
         val expectTileDBO= TileDBO(
             id = null,
             photoPath = photoPath,
@@ -22,7 +23,6 @@ class SaveNewPhotoToGalleryUsecaseTest {
         )
 
         val testSaveNewPhotoToGalleryUsecase=SaveNewPhotoToGalleryUsecase(AppDatabaseRepositoryMock)
-
         val actual=runBlocking{testSaveNewPhotoToGalleryUsecase(photoPath,dateTime)}
 
         Assertions.assertEquals(expectTileDBO,actual)
